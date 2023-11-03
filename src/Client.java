@@ -8,8 +8,8 @@ public class Client {
         final int END_OF_SENTENCE = 10;
         Boolean exitCommand = false;
         
-        try(Socket clientSocket = new Socket("localhost",8080);) {
-            myRunnableClient threadJob = new myRunnableClient(clientSocket,exitCommand);
+        try(Socket clientSocket = new Socket("localhost",8080)) {
+            MyRunnableClient threadJob = new MyRunnableClient(clientSocket,exitCommand);
             new Thread(threadJob).start();
             OutputStream outputStream = clientSocket.getOutputStream();
             Scanner scanner = new Scanner(System.in);

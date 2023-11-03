@@ -3,12 +3,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 
-public class myRunnableClient implements Runnable {
+public class MyRunnableClient implements Runnable {
     private final Socket socket;
     final int END_OF_SENTENCE = 10;
     private Boolean exitCommand;
     
-    public myRunnableClient(Socket socket, Boolean exitCommand) {
+    public MyRunnableClient(Socket socket, Boolean exitCommand) {
         this.socket = socket;
         this.exitCommand = exitCommand;
     }
@@ -25,7 +25,7 @@ public class myRunnableClient implements Runnable {
                     bytes.write((byte) input);
 
                 } else if (bytes.size()>0) {
-                    System.out.println(bytes.toString());
+                    System.out.println(bytes);
                     bytes.reset();
                 }
             }
